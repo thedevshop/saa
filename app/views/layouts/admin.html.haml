@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    %title G2 Admin
+    = stylesheet_link_tag "admin/application", media: "all"
+    = javascript_include_tag "admin/application"
+    = csrf_meta_tags
+
+
+  %body
+    .admin-wrapper
+      = render "shared/admin/header"
+      .admin-left
+        = render "shared/admin/sidebar"
+      .admin-right
+        = yield
+      .admin-left-bg

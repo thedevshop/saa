@@ -1,0 +1,20 @@
+#pagetype.property-management{data: {sub_page: "listings"}}
+  .admin-breadcrumbs
+    Property Management
+    %i.fa.fa-angle-right 
+    = link_to "Listings", admin_listings_path
+    %i.fa.fa-angle-right 
+    Edit Listing
+  .admin-divider-line
+  .admin-title-wrapper
+    .admin-page-title 
+      %i.fa.fa-list
+      Edit Listing
+  .admin-divider-line
+
+  .admin-box-wrapper.full
+    .admin-box
+      .admin-form-header
+        %p.admin-form-title Edit #{@listing.building.name}
+        %p.admin-form-description Edit the existing listing below
+      = render 'form'

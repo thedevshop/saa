@@ -1,0 +1,667 @@
+$orange: #f1931c
+$orange-hover: #d27e15
+
+$blue: #3498db
+$blue-hover: #257cb6
+
+$gray: #333333
+$light-gray: #f5f5f5
+
+$admin-gray: #272930
+$admin-gray-darker: #2f323a
+$admin-gray-light: #33353e
+
+*
+  margin: 0
+  padding: 0
+
+html, body
+  background: $light-gray
+  height: 100%
+  width: 100%
+  
+
+  .clear
+    clear: both
+
+  a
+    color: #000
+    text-decoration: none
+
+  .left
+    float: left
+
+  .right
+    float: right
+
+  .admin-wrapper
+    width: 100%
+    padding: 0 0 0 300px
+    position: relative
+    -moz-box-sizing: border-box
+    -webkit-box-sizing: border-box
+    box-sizing: border-box
+
+    .admin-left
+      width: 300px
+      position: absolute
+      top: 0
+      left: 0
+      z-index: 2
+      padding: 60px 0 0
+      -moz-box-sizing: border-box
+      -webkit-box-sizing: border-box
+      box-sizing: border-box
+
+    .admin-left-bg
+      background: $admin-gray
+      width: 300px
+      height: 100%
+      position: fixed
+      left: 0
+      top: 0
+      z-index: 1
+
+    .admin-right
+      width: 100%
+      height: 100%
+      padding: 80px 30px 30px
+      -moz-box-sizing: border-box
+      -webkit-box-sizing: border-box
+      box-sizing: border-box
+
+      .admin-breadcrumbs
+        font-family: "gs-light-italic"
+        font-size: 14px
+        color: #000
+        text-transform: capitalize
+        font-weight: normal
+        -webkit-font-smoothing: antialiased
+        -moz-osx-font-smoothing: grayscale
+
+        a:hover
+          color: $orange
+
+        &.line-adjust
+          padding: 8px 0
+
+        i
+          margin: 0 5px
+          color: rgba(0,0,0,.4)
+
+      .admin-title-wrapper
+        width: 100%
+        overflow: hidden
+
+        .admin-page-title
+          font-family: "gs-regular"
+          font-size: 20px
+          color: #000
+          float: left
+          padding: 8px 0
+          font-weight: normal
+          -webkit-font-smoothing: antialiased
+          -moz-osx-font-smoothing: grayscale
+
+          i
+            color: rgba(0,0,0,.2)
+            margin: 0 5px 0 0
+
+      .add-button
+        background: $blue
+        font-family: "gs-regular"
+        font-size: 14px
+        color: #FFF
+        float: right
+        padding: 8px 12px
+        border-radius: 3px
+        border-top: 1px solid rgba(255,255,255,.4)
+        border-bottom: 2px solid rgba(0,0,0,.2)
+        font-weight: normal
+        -webkit-font-smoothing: antialiased
+        -moz-osx-font-smoothing: grayscale
+
+        &:hover
+          background: $blue-hover
+          border-bottom: 2px solid $blue-hover
+
+        i
+          font-size: 12px
+          margin: 0 5px 0 0
+
+      .filters-button, .search-button, .send-email-button
+        background: #d7d7d7
+        float: right
+        cursor: pointer
+        border-radius: 3px
+
+        &:hover
+          background: $orange
+
+        &.active
+          background: $orange
+
+        p.filters-text
+          display: inline-block
+          font-family: "gs-regular"
+          font-size: 14px
+          color: #000
+          margin: 0 12px 0 0
+          font-weight: normal
+          -webkit-font-smoothing: antialiased
+          -moz-osx-font-smoothing: grayscale
+
+        i
+          color: rgba(0,0,0,.7)
+          margin: 8px 5px 8px 12px
+
+
+
+      .search-button
+        margin: 0 10px 0 0
+        overflow: hidden
+        
+        i
+          margin: 8px 12px 8px 12px
+
+        .close-search
+          background: #FFF
+          display: none
+          float: left
+
+          i
+            color: #d7d7d7
+
+        input
+          display: none
+          float: left
+          vertical-align: top
+          height: 100%
+          width: 0
+          border: none
+          padding: 9px 
+          outline: none
+          margin: 0 0 0 5px
+          font-family: "gs-regular"
+          font-size: 12px
+          color: #000
+          font-weight: normal
+          -webkit-font-smoothing: antialiased
+          -moz-osx-font-smoothing: grayscale
+
+        ::-webkit-input-placeholder 
+          font-family: "gs-light-italic"
+        
+
+        :-moz-placeholder
+          font-family: "gs-light-italic"  
+        
+
+        ::-moz-placeholder
+          font-family: "gs-light-italic"  
+        
+
+        :-ms-input-placeholder   
+          font-family: "gs-light-italic"  
+
+      .send-email-button
+        margin: 0 10px 0 0
+        overflow: hidden
+
+        &.disabled
+          cursor: default
+
+          &:hover
+            background: #d7d7d7
+
+          p.filters-text, i
+            color: rgba(0,0,0,.2)
+
+        .send-email-select-container
+          display: none
+          background: image-url("admin/dropdown-arrow.png") no-repeat 93% center #FFF
+          float: left
+          vertical-align: top
+          height: 100%
+          width: auto
+          border: none
+          margin: 0 0 0 5px
+
+          select
+            width: 100%
+            height: 100%
+            -webkit-appearance: none
+            -moz-appearance: window
+            padding: 9px 35px 9px 9px
+            outline: none
+            border: 0
+            background: transparent
+            font-family: "gs-regular"
+            font-size: 12px
+            color: #000
+            cursor: pointer
+            font-weight: normal
+            -webkit-font-smoothing: antialiased
+            -moz-osx-font-smoothing: grayscale
+
+          ::-webkit-input-placeholder 
+            font-family: "gs-light-italic"
+          
+
+          :-moz-placeholder
+            font-family: "gs-light-italic"  
+          
+
+          ::-moz-placeholder
+            font-family: "gs-light-italic"  
+          
+
+          :-ms-input-placeholder   
+            font-family: "gs-light-italic"  
+
+
+      .admin-filters-wrapper
+        // display: none
+
+        .admin-filters-container
+          padding: 20px
+          -moz-box-sizing: border-box
+          -webkit-box-sizing: border-box
+          box-sizing: border-box
+
+          .filters-title
+            font-family: "montserrat-regular"
+            font-size: 16px
+            color: #000
+            margin: 0 0 20px 0
+            text-transform: uppercase
+            font-weight: normal
+            -webkit-font-smoothing: antialiased
+            -moz-osx-font-smoothing: grayscale
+
+          .filters-box
+            width: 33%
+            float: left
+            padding: 0 20px
+            -moz-box-sizing: border-box
+            -webkit-box-sizing: border-box
+            box-sizing: border-box
+
+            &.third
+              width: 33%
+
+            &.two-fifths
+              width: 40%
+
+            &.one-fifth
+              width: 20%
+
+            .input-container
+              margin: 0 0 40px 0
+
+            label.filters
+              display: block
+              font-family: "gs-light"
+              font-size: 15px
+              color: #000
+              margin: 0 0 10px 0
+              font-weight: normal
+              -webkit-font-smoothing: antialiased
+              -moz-osx-font-smoothing: grayscale
+
+
+            .chosen-select-container
+              margin: 0 0 20px 0
+
+              &:last-child
+                margin: 0
+
+            .datepicker-container
+
+              &:after
+                content: ""
+                display: block
+                clear: both
+
+              .datepicker-wrapper
+                width: 100%
+                margin: 0 0 20px 0
+
+                &:last-child
+                  margin: 0
+
+                &.half
+                  width: 50%
+                  float: left
+
+                  input.datepicker-input
+                    display: inline-block
+                    width: 95%                
+
+                &.align-right
+                  text-align: right
+
+              
+                input.datepicker-input
+                  width: 100%
+                  border: 1px solid rgba(0,0,0,.1)
+                  outline: none
+                  padding: 10px
+                  font-family: "gs-light"
+                  font-size: 14px
+                  color: #000
+                  font-weight: normal
+                  -webkit-font-smoothing: antialiased
+                  -moz-osx-font-smoothing: grayscale
+                  -moz-box-sizing: border-box
+                  -webkit-box-sizing: border-box
+                  box-sizing: border-box
+
+                ::-webkit-input-placeholder 
+                  color: #999
+                  font-family: "gs-regular"
+                
+
+                :-moz-placeholder
+                  color: #999
+                  font-family: "gs-regular"  
+                
+
+                ::-moz-placeholder
+                  color: #999
+                  font-family: "gs-regular"  
+                
+
+                :-ms-input-placeholder   
+                  color: #999
+                  font-family: "gs-regular"  
+
+      .admin-divider-line
+        width: 100%
+        height: 1px
+        background-color: rgba(0,0,0,.1)
+        margin: 20px 0
+
+      .admin-box-wrapper
+        margin: 0 0 20px 0
+
+        &.full
+          width: 100%
+
+          .admin-box
+            width: 100%
+
+        &.half
+          width: 50%
+          float: left
+
+          &:nth-of-type(even)
+            text-align: right
+
+        &.third
+          width: 33%
+          float: left
+
+        &.quarter
+          width: 25%
+          float: left
+
+        .admin-box
+          display: inline-block
+          width: 98%
+          background: #FFF
+          border-radius: 4px
+          border: 1px solid rgba(0,0,0,.1)
+          box-shadow: 0px 0px 3px rgba(0,0,0,.1)
+          overflow: hidden
+
+          label
+            display: block
+            font-family: "gs-light"
+            font-size: 15px
+            text-align: left
+            color: #000
+            margin: 0 0 10px 0
+            font-weight: normal
+            -webkit-font-smoothing: antialiased
+            -moz-osx-font-smoothing: grayscale
+
+          .admin-email-and-notes-wrapper
+            width: 100%
+            display: table
+
+            .admin-email-blast-container
+              display: table-cell
+              vertical-align: top
+              width: 40%
+              padding: 15px 0
+              -moz-box-sizing: border-box
+              -webkit-box-sizing: border-box
+              box-sizing: border-box
+
+              ul.social-media
+                list-style-type: none
+                padding: 0 20px
+                -moz-box-sizing: border-box
+                -webkit-box-sizing: border-box
+                box-sizing: border-box
+
+                li.social-media
+                  font-family: "gs-light"
+                  font-size: 13px
+                  color: #000
+                  line-height: 22px
+                  margin: 0 0 10px 0
+                  font-weight: normal
+                  -webkit-font-smoothing: antialiased
+                  -moz-osx-font-smoothing: grayscale
+
+                  a:hover
+                    color: $orange
+
+                  .social-media-icon
+                    display: inline-block
+                    vertical-align: text-bottom
+                    background: image-url("admin/social-icons.png") no-repeat 
+                    background-color: $admin-gray
+                    width: 20px
+                    height: 20px
+                    margin: 0 5px 0 0
+                    border-radius: 3px
+
+                    &:hover
+                      background-color: $blue
+
+                    &.twitter
+                      background-position: 4px center
+
+                    &.linkedin
+                      background-position: -22px center
+
+                    &.angellist
+                      background-position: -48px center
+
+                    &.klout
+                      background-position: -74px center
+
+              .email-divider-line
+                background: rgba(0,0,0,.1)
+                width: 100%
+                height: 1px
+                margin: 20px 0 0
+    
+              ul.email-history
+                list-style-type: none
+                margin: 0 0 0 10px
+                padding: 0 20px
+                -moz-box-sizing: border-box
+                -webkit-box-sizing: border-box
+                box-sizing: border-box
+                
+                li.email-history
+                  font-family: "gs-regular"
+                  font-size: 12px
+                  text-align: left
+                  color: rgba(0,0,0,.6)
+                  margin: 0 0 10px 0
+                  font-weight: normal
+                  -webkit-font-smoothing: antialiased
+                  -moz-osx-font-smoothing: grayscale
+
+            .admin-contact-wrapper
+              display: table-cell
+              vertical-align: top
+              background: #f6f6f6
+              width: 60%
+              padding: 20px
+              -moz-box-sizing: border-box
+              -webkit-box-sizing: border-box
+              box-sizing: border-box
+
+              .admin-contact-container
+                background: #FFF
+                width: 100%
+                margin: 0 auto 20px
+                border-radius: 2px
+                border: 1px solid rgba(0,0,0,.1)
+                text-align: center
+                padding: 0 0 20px
+                -moz-box-sizing: border-box
+                -webkit-box-sizing: border-box
+                box-sizing: border-box
+    
+                &:last-child
+                  margin: 0
+
+                .contact-form-wrapper
+                  overflow: visible
+                  text-align: left
+
+                  .tag-input-wrapper
+                    width: 80%
+                    float: left
+
+                    .chosen-select-container
+                      width: 95%
+
+                      &.tags
+
+                        .chosen-container.chosen-container-multi .chosen-choices .search-choice
+                          background: #444
+
+                .admin-contact-header
+                  font-family: "montserrat-regular"
+                  font-size: 14px
+                  text-align: left
+                  color: #000
+                  margin: 0 0 5px 0
+                  font-weight: normal
+                  -webkit-font-smoothing: antialiased
+                  -moz-osx-font-smoothing: grayscale
+
+                ul.notes
+                  list-style-type: none
+
+                  li.note
+                    padding: 20px
+                    -moz-box-sizing: border-box
+                    -webkit-box-sizing: border-box
+                    box-sizing: border-box
+
+                    &:nth-of-type(odd)
+                      background: #fafafa
+
+                    .note-content
+                      font-family: "gs-regular"
+                      font-size: 13px
+                      text-align: left
+                      color: #000
+                      margin: 0 0 20px 0
+                      line-height: 22px
+                      font-weight: normal
+                      -webkit-font-smoothing: antialiased
+                      -moz-osx-font-smoothing: grayscale
+
+                    .note-author-container
+                      text-align: left
+
+                      .note-author-img
+                        display: inline-block
+                        vertical-align: middle
+                        width: 20px
+                        height: 20px
+                        border-radius: 50%
+                        overflow: hidden
+                        margin: 0 5px 0 0
+
+                        img
+                          width: 100%
+
+                      .note-author
+                        display: inline-block
+                        font-family: "gs-light-italic"
+                        font-size: 14px
+                        text-align: left
+                        color: rgba(0,0,0,.8)
+                        font-weight: normal
+                        -webkit-font-smoothing: antialiased
+                        -moz-osx-font-smoothing: grayscale
+
+                .load-more
+                  background: $admin-gray
+                  display: inline-block
+                  border: none
+                  border-top: 1px solid rgba(255,255,255,.2)
+                  border-bottom: 1px solid rgba(0,0,0,.2)
+                  border-radius: 3px
+                  padding: 12px 14px
+                  -moz-box-sizing: border-box
+                  -webkit-box-sizing: border-box
+                  box-sizing: border-box
+                  line-height: 16px
+                  font-family: "montserrat-regular"
+                  font-size: 14px
+                  color: #FFF
+                  cursor: pointer
+                  font-weight: normal
+                  -webkit-font-smoothing: antialiased
+                  -moz-osx-font-smoothing: grayscale
+
+                  &:hover
+                    background: $admin-gray-light
+
+          .admin-form-header
+            width: 100%
+            background-color: $admin-gray
+            padding: 15px 20px
+            -moz-box-sizing: border-box
+            -webkit-box-sizing: border-box
+            box-sizing: border-box
+
+            .admin-form-title
+              font-family: "montserrat-regular"
+              font-size: 14px
+              text-align: left
+              color: #FFF
+              margin: 0 0 5px 0
+              font-weight: normal
+              -webkit-font-smoothing: antialiased
+              -moz-osx-font-smoothing: grayscale
+
+            .admin-form-description
+              font-family: "gs-light"
+              font-size: 14px
+              text-align: left
+              color: #FFF
+              font-weight: normal
+              -webkit-font-smoothing: antialiased
+              -moz-osx-font-smoothing: grayscale
+
+
+
+
+
+
+
+
+

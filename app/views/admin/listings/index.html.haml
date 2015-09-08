@@ -1,0 +1,41 @@
+#pagetype.property-management{data: {sub_page: "listings"}}
+  .admin-breadcrumbs
+    Property Management
+    %i.fa.fa-angle-right 
+    Listings
+  .admin-divider-line
+
+  .admin-title-wrapper
+    .admin-page-title 
+      %i.fa.fa-list
+      Listings
+    = link_to new_admin_listing_path, class: 'add-button' do
+      %i.fa.fa-plus
+      Add a Listing   
+  .admin-divider-line
+  -if @listings.any?
+    .admin-box-wrapper.full
+      .admin-box
+        .admin-list
+          %table
+            %thead
+              %tr
+                %th Building
+                %th Unit
+                %th Size
+                %th
+            %tbody
+              - @listings.each do |listing|
+                %tr.row-link
+                  %td.cell-link= listing.building.name
+                  %td.cell-link= listing.unit
+                  %td.cell-link= listing.size
+                  %td
+                    = link_to admin_listing_path(listing), class: "crud-icon crud-show" do
+                      %i.fa.fa-eye
+
+                    = link_to edit_admin_listing_path(listing), class: "crud-icon" do
+                      %i.fa.fa-pencil
+                    
+                    = link_to admin_listing_path(listing), :method => :delete, :confirm => "Are you sure?", class: "crud-icon" do
+                      %i.fa.fa-trash-o

@@ -1,0 +1,20 @@
+#pagetype.property-management{data: {sub_page: "buildings"}}
+  .admin-breadcrumbs
+    Property Management
+    %i.fa.fa-angle-right 
+    = link_to "Buildings", admin_buildings_path
+    %i.fa.fa-angle-right 
+    Edit Building
+  .admin-divider-line
+  .admin-title-wrapper
+    .admin-page-title 
+      %i.fa.fa-building-o
+      Edit Building
+  .admin-divider-line
+
+  .admin-box-wrapper.full
+    .admin-box
+      .admin-form-header
+        %p.admin-form-title Edit #{@building.name}
+        %p.admin-form-description Edit the existing building below
+      = render 'form'

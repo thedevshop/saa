@@ -1,0 +1,1 @@
+G2::Application.config.secret_key_base = '9d4d9a1fb6f65029b3b102d1c6c225d970b19f7f7f51229add8e4bd55845ad103a0cf1491227edffedede1195b96969a18029d148e273bf91e04cb3c5cdeb5ee'

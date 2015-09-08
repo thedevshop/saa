@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  building_id: 1
+  unit: MyString
+  size: 1
+  use: MyString
+  is_sublease: false
+  term: 1
+  price_per_square_foot: 1.5
+  total_monthly_price: 1.5
+
+two:
+  building_id: 1
+  unit: MyString
+  size: 1
+  use: MyString
+  is_sublease: false
+  term: 1
+  price_per_square_foot: 1.5
+  total_monthly_price: 1.5

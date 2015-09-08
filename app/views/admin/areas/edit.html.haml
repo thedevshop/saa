@@ -1,0 +1,20 @@
+#pagetype.property-management{data: {sub_page: "areas"}}
+  .admin-breadcrumbs
+    Property Management
+    %i.fa.fa-angle-right 
+    = link_to "Areas", admin_areas_path
+    %i.fa.fa-angle-right 
+    Edit Area
+  .admin-divider-line
+  .admin-title-wrapper
+    .admin-page-title 
+      %i.fa.fa-map-marker
+      Edit Area
+  .admin-divider-line
+
+  .admin-box-wrapper.full
+    .admin-box
+      .admin-form-header
+        %p.admin-form-title Edit #{@area.name}
+        %p.admin-form-description Edit the existing area below
+      = render 'form'

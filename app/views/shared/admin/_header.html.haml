@@ -1,0 +1,11 @@
+.admin-header
+  %header
+    .logo-container
+      = link_to admin_root_path do
+        %h1.logo 
+          Random Realty
+    .admin-header-nav-container
+      %ul.admin-header-nav
+        %li.admin-header-nav= link_to "Dashboard", admin_root_path
+        %li.admin-header-nav= link_to "Settings", ""
+    

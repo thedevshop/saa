@@ -1,0 +1,8 @@
+.form-wrapper
+  = simple_form_for([:admin,@area]) do |f|
+    .input-container.full
+      %label Area Name
+      = f.input :name, label: false, placeholder: "ex: Financial District"
+
+    .input-container.full.align-right
+      = f.submit "Submit"

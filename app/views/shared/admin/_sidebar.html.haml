@@ -1,0 +1,33 @@
+.admin-sidebar
+  %nav
+    %ul.sidebar-nav      
+      = link_to admin_root_path, class: "admin-sidebar-link" do
+        %li#dashboard.sidebar-nav.single
+          .icon-container
+            .active-bar
+            %i.fa.fa-dashboard
+          Dashboard
+          
+      = link_to "", class: "admin-sidebar-link stack" do
+        %li#property-management.sidebar-nav
+          .icon-container
+            .active-bar
+            %i.fa.fa-building
+          Property Management
+      %ul.sidebar-subnav
+        = link_to admin_areas_path do
+          %li.sidebar-subnav.areas
+            %i.fa.fa-map-marker
+            Areas
+            .subnav-count= Area.count
+        = link_to admin_buildings_path do
+          %li.sidebar-subnav.buildings
+            %i.fa.fa-building-o
+            Buildings
+            .subnav-count= Building.count
+        = link_to admin_listings_path do
+          %li.sidebar-subnav.listings
+            %i.fa.fa-list
+            Listings
+            .subnav-count= Listing.count
+

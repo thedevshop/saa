@@ -1,0 +1,28 @@
+//Refresh - during map activity, new coordinates are passed to the listings_controller via ajax in map.js, 
+//a new object is created with listings that match those bounds and passed to this file
+  
+  //re-render the listings partial 
+  $(".listings-results").css({"opacity":".4"}).html('<%= escape_javascript(render :partial => 'properties', :locals => {:@listings => @listings, :@object => @object}).html_safe %>').animate({"opacity":1});    
+  
+  //clear the current map markers
+  window.markerCluster.clearMarkers();
+  
+  //empty the array of old markers
+  window.markers = [];
+  
+  //pass the new markers through the global variable to drop new ones on the page
+  window.globalPushMarkers($.parseJSON('<%= j @object %>'));
+
+  //call function for carousel
+  window.imgSlider();
+
+
+  //resize images
+  $('.resize img').centerImage().fadeIn(200);
+
+  
+
+
+
+
+

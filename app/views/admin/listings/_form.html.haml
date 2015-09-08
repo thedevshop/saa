@@ -1,0 +1,37 @@
+.form-wrapper
+  = simple_form_for([:admin,@listing]) do |f|
+    .input-container.half
+      %label Building    
+      .select-container
+        = f.association :building, label: false, prompt: "Choose a building"
+    / = f.input :address
+    .input-container.half.align-right
+      %label Unit
+      = f.input :unit, label: false, placeholder: "ex: 302" 
+    .input-container.half
+      %label 
+        Unit Size
+        %span (Sq Ft) 
+      = f.input :size, label: false, placeholder: "ex: 32000", as: :string
+    .input-container.half.align-right
+      %label Use
+      = f.input :use, label: false, placeholder: "ex: Commerical"
+    .input-container.half
+      %label Sublease
+      .slider-container
+        = f.check_box :is_sublease, label: false, id: "sublease-slider"
+        %label{for: "sublease-slider"}
+    .input-container.half.align-right
+      %label 
+        Term
+        %span (Years)
+      = f.input :term, label: false, placeholder: "ex: 1", as: :string
+    .clear
+    .input-container.half
+      %label Price Per Square Foot
+      = f.input :price_per_square_foot, label: false, placeholder: "ex: 500", as: :string
+    .input-container.half.align-right
+      %label Total Monthly Price
+      = f.input :total_monthly_price, label: false, placeholder: "ex: 10000", as: :string
+    .input-container.full.align-right
+      = f.submit "Submit"

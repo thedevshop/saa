@@ -1,0 +1,216 @@
+@font-face {
+    font-family:'gs-light';
+    src: asset-url('GillSans-Light/gillsans-light.eot');
+    src: asset-url('GillSans-Light/gillsans-light.eot?#iefix') format('embedded-opentype'),
+         asset-url('GillSans-Light/gillsans-light.woff') format('woff'),
+         asset-url('GillSans-Light/gillsans-light.ttf') format('truetype'),
+         asset-url('GillSans-Light/gillsans-light.svg#gillsans-light') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family:'gs-light-italic';
+    src: asset-url('GillSans-LightItalic/gillsans-lightitalic.eot');
+    src: asset-url('GillSans-LightItalic/gillsans-lightitalic.eot?#iefix') format('embedded-opentype'),
+         asset-url('GillSans-LightItalic/gillsans-lightitalic.woff') format('woff'),
+         asset-url('GillSans-LightItalic/gillsans-lightitalic.ttf') format('truetype'),
+         asset-url('GillSans-LightItalic/gillsans-lightitalic.svg#gillsans-lightitalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family:'gs-regular';
+    src: asset-url('GillSans-Regular/gillsans.eot');
+    src: asset-url('GillSans-Regular/gillsans.eot?#iefix') format('embedded-opentype'),
+         asset-url('GillSans-Regular/gillsans.woff') format('woff'),
+         asset-url('GillSans-Regular/gillsans.ttf') format('truetype'),
+         asset-url('GillSans-Regular/gillsans.svg#gillsans') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family:'gs-semibold';
+    src: asset-url('GillSans-Semibold/gillsans-semibold-webfont.eot');
+    src: asset-url('GillSans-Semibold/gillsans-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+         asset-url('GillSans-Semibold/gillsans-semibold-webfont.woff') format('woff'),
+         asset-url('GillSans-Semibold/gillsans-semibold-webfont.ttf') format('truetype'),
+         asset-url('GillSans-Semibold/gillsans-semibold-webfont.svg#gillsans-semibold-webfont') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family:'montserrat-regular';
+    src: asset-url('Montserrat-Regular/montserrat-regular.eot');
+    src: asset-url('Montserrat-Regular/montserrat-regular.eot?#iefix') format('embedded-opentype'),
+         asset-url('Montserrat-Regular/montserrat-regular.woff') format('woff'),
+         asset-url('Montserrat-Regular/montserrat-regular.ttf') format('truetype'),
+         asset-url('Montserrat-Regular/montserrat-regular.svg#montserrat-regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family:'montserrat-bold';
+    src: asset-url('Montserrat-Bold/montserrat-bold-webfont.eot');
+    src: asset-url('Montserrat-Bold/montserrat-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         asset-url('Montserrat-Bold/montserrat-bold-webfont.woff') format('woff'),
+         asset-url('Montserrat-Bold/montserrat-bold-webfont.ttf') format('truetype'),
+         asset-url('Montserrat-Bold/montserrat-bold-webfont.svg#montserrat-bold-webfont') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family:'glober-thin';
+    src: asset-url('Glober/glober_thin_free-webfont.eot');
+    src: asset-url('Glober/glober_thin_free-webfont.eot?#iefix') format('embedded-opentype'),
+         asset-url('Glober/glober_thin_free-webfont.woff') format('woff'),
+         asset-url('Glober/glober_thin_free-webfont.ttf') format('truetype'),
+         asset-url('Glober/glober_thin_free-webfont.svg#glober_thin_free-webfont') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family:'franchise-bold';
+    src: asset-url('Franchise-Bold/franchise-bold.eot');
+    src: asset-url('Franchise-Bold/franchise-bold.eot?#iefix') format('embedded-opentype'),
+         asset-url('Franchise-Bold/franchise-bold.woff') format('woff'),
+         asset-url('Franchise-Bold/franchise-bold.ttf') format('truetype'),
+         asset-url('Franchise-Bold/franchise-bold.svg#franchise-bold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family:'sreda';
+    src: asset-url('Sreda/sreda.eot');
+    src: asset-url('Sreda/sreda.eot?#iefix') format('embedded-opentype'),
+         asset-url('Sreda/sreda.woff') format('woff'),
+         asset-url('Sreda/sreda.ttf') format('truetype'),
+         asset-url('Sreda/sreda.svg#sreda') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family:'kievit';
+    src: asset-url('Kievit/kievit_regular.eot');
+    src: asset-url('Kievit/kievit_regular.eot?#iefix') format('embedded-opentype'),
+         asset-url('Kievit/kievit_regular.woff') format('woff'),
+         asset-url('Kievit/kievit_regular.ttf') format('truetype'),
+         asset-url('Kievit/kievit_regular.svg#kievit_regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family:'helvetica-bold';
+    src: asset-url('Helvetica-Bold/helvetica-bold.eot');
+    src: asset-url('Helvetica-Bold/helvetica-bold.eot?#iefix') format('embedded-opentype'),
+         asset-url('Helvetica-Bold/helvetica-bold.woff') format('woff'),
+         asset-url('Helvetica-Bold/helvetica-bold.ttf') format('truetype'),
+         asset-url('Helvetica-Bold/helvetica-bold.svg#helvetica-bold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family:'aileron-thin';
+    src: asset-url('Aileron-Thin/aileron-thin-webfont.eot');
+    src: asset-url('Aileron-Thin/aileron-thin-webfont.eot?#iefix') format('embedded-opentype'),
+         asset-url('Aileron-Thin/aileron-thin-webfont.woff') format('woff'),
+         asset-url('Aileron-Thin/aileron-thin-webfont.ttf') format('truetype'),
+         asset-url('Aileron-Thin/aileron-thin-webfont.svg#aileron-thin-webfont') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family:'aileron-light';
+    src: asset-url('Aileron-Light/aileron-light-webfont.eot');
+    src: asset-url('Aileron-Light/aileron-light-webfont.eot?#iefix') format('embedded-opentype'),
+         asset-url('Aileron-Light/aileron-light-webfont.woff') format('woff'),
+         asset-url('Aileron-Light/aileron-light-webfont.ttf') format('truetype'),
+         asset-url('Aileron-Light/aileron-light-webfont.svg#aileron-light-webfont') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family:'aileron-light-italic';
+    src: asset-url('Aileron-Light-Italic/aileron-lightitalic-webfont.eot');
+    src: asset-url('Aileron-Light-Italic/aileron-lightitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         asset-url('Aileron-Light-Italic/aileron-lightitalic-webfont.woff') format('woff'),
+         asset-url('Aileron-Light-Italic/aileron-lightitalic-webfont.ttf') format('truetype'),
+         asset-url('Aileron-Light-Italic/aileron-lightitalic-webfont.svg#aileron-lightitalic-webfont') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family:'aileron-regular';
+    src: asset-url('Aileron-Regular/aileron-regular-webfont.eot');
+    src: asset-url('Aileron-Regular/aileron-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         asset-url('Aileron-Regular/aileron-regular-webfont.woff') format('woff'),
+         asset-url('Aileron-Regular/aileron-regular-webfont.ttf') format('truetype'),
+         asset-url('Aileron-Regular/aileron-regular-webfont.svg#aileron-regular-webfont') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family:'aileron-regular-italic';
+    src: asset-url('Aileron-Regular-italic/aileron-italic-webfont.eot');
+    src: asset-url('Aileron-Regular-italic/aileron-italic-webfont.eot?#iefix') format('embedded-opentype'),
+         asset-url('Aileron-Regular-italic/aileron-italic-webfont.woff') format('woff'),
+         asset-url('Aileron-Regular-italic/aileron-italic-webfont.ttf') format('truetype'),
+         asset-url('Aileron-Regular-italic/aileron-italic-webfont.svg#aileron-italic-webfont') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family:'aileron-regular-italic';
+    src: asset-url('Aileron-Regular-Italic/aileron-italic-webfont.eot');
+    src: asset-url('Aileron-Regular-Italic/aileron-italic-webfont.eot?#iefix') format('embedded-opentype'),
+         asset-url('Aileron-Regular-Italic/aileron-italic-webfont.woff') format('woff'),
+         asset-url('Aileron-Regular-Italic/aileron-italic-webfont.ttf') format('truetype'),
+         asset-url('Aileron-Regular-Italic/aileron-italic-webfont.svg#aileron-italic-webfont') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family:'aileron-bold';
+    src: asset-url('Aileron-Bold/aileron-bold-webfont.eot');
+    src: asset-url('Aileron-Bold/aileron-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         asset-url('Aileron-Bold/aileron-bold-webfont.woff') format('woff'),
+         asset-url('Aileron-Bold/aileron-bold-webfont.ttf') format('truetype'),
+         asset-url('Aileron-Bold/aileron-bold-webfont.svg#aileron-bold-webfont') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family:'aileron-semibold-italic';
+    src: asset-url('Aileron-Semibold-Italic/aileron-semibolditalic-webfont.eot');
+    src: asset-url('Aileron-Semibold-Italic/aileron-semibolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+         asset-url('Aileron-Semibold-Italic/aileron-semibolditalic-webfont.woff') format('woff'),
+         asset-url('Aileron-Semibold-Italic/aileron-semibolditalic-webfont.ttf') format('truetype'),
+         asset-url('Aileron-Semibold-Italic/aileron-semibolditalic-webfont.svg#aileron-semibolditalic-webfont') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+
+
+
+
+

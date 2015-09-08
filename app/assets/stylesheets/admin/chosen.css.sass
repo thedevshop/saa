@@ -1,0 +1,343 @@
+//*************************
+//CHOSEN WIDTH IS IN CHOSEN.JS FILE
+//*************************
+
+// @group Base
+.chosen-container 
+  position: relative
+  display: inline-block
+  vertical-align: middle
+  font-size: 13px
+  zoom: 1
+  *display: inline
+  -webkit-user-select: none
+  -moz-user-select: none
+  user-select: none
+  font-family: "gs-regular"
+  font-size: 14px
+  color: $admin-gray
+  font-weight: normal
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+  .chosen-drop 
+    position: absolute
+    top: 100%
+    left: -9999px
+    z-index: 1010
+    -webkit-box-sizing: border-box
+    -moz-box-sizing: border-box
+    box-sizing: border-box
+    width: 100%
+    border: 1px solid rgba(0,0,0,.1)
+    border-top: 0
+    background: #fff
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1)
+
+  &.chosen-with-drop
+
+    .chosen-drop 
+      left: 0
+
+  a 
+    cursor: pointer
+// @end
+
+// @group Single Chosen
+.chosen-container-single 
+
+  &.chosen-disabled
+
+    .chosen-single
+
+      abbr
+
+        &:hover
+          background-position: -42px -10px
+
+  &.chosen-container-single-nosearch 
+
+    .chosen-search 
+      position: absolute
+      left: -9999px
+
+
+  .chosen-single 
+    position: relative
+    display: block
+    overflow: hidden
+    padding: 8px 12px
+    height: 23px
+    border: 1px solid rgba(0,0,0,.1)
+    background-color: #fff
+    background-clip: padding-box
+    color: #444
+    text-decoration: none
+    white-space: nowrap
+    line-height: 24px
+
+    span 
+      display: block
+      overflow: hidden
+      margin-right: 26px
+      font-size: 14px
+      text-overflow: ellipsis
+      white-space: nowrap
+
+    abbr 
+      position: absolute
+      top: 6px
+      right: 26px
+      display: block
+      width: 12px
+      height: 12px
+      background: image-url('admin/chosen-sprite.png') -42px 1px no-repeat
+      font-size: 1px
+
+      &:hover 
+        background-position: -42px -10px
+
+    div 
+      position: absolute
+      top: 0
+      right: 0
+      display: block
+      width: 18px
+      height: 100%
+
+      b 
+        display: block
+        width: 100%
+        height: 100%
+        background: image-url('admin/dropdown-arrow.png') no-repeat 0px center
+
+
+  .chosen-default 
+    color: #999
+
+
+  .chosen-single-with-deselect 
+    
+    span 
+      margin-right: 38px
+
+
+  .chosen-search 
+    position: relative
+    z-index: 1010
+    margin: 0
+    padding: 3px 4px
+    white-space: nowrap
+
+    input[type="text"] 
+      -webkit-box-sizing: border-box
+      -moz-box-sizing: border-box
+      box-sizing: border-box
+      margin: 1px 0
+      padding: 8px 20px 8px 10px
+      width: 100%
+      height: auto
+      outline: 0
+      border: 1px solid #aaa
+      background: white image-url('admin/chosen-sprite.png') no-repeat 100% -25px
+      background: image-url('admin/chosen-sprite.png') no-repeat 100% -25px
+      font-size: 1em
+      line-height: normal
+      border-radius: 0
+      font-family: "gs-regular"
+      font-weight: normal
+      -webkit-font-smoothing: antialiased
+      -moz-osx-font-smoothing: grayscale
+
+  .chosen-drop 
+    margin-top: -1px
+    border-radius: 0 0 4px 4px
+    background-clip: padding-box
+
+// @end
+
+// @group Results
+.chosen-container 
+
+  .chosen-results 
+    position: relative
+    overflow-x: hidden
+    overflow-y: auto
+    margin: 0 4px 4px 0
+    padding: 0 0 0 4px
+    max-height: 240px
+    -webkit-overflow-scrolling: touch
+
+    li 
+      display: none
+      margin: 0
+      padding: 10px
+      list-style: none
+      line-height: 15px
+      -webkit-touch-callout: none
+
+      &.active-result 
+        display: list-item
+        cursor: pointer
+
+      &.disabled-result 
+        display: list-item
+        color: #ccc
+        cursor: default
+
+      &.highlighted 
+        background-color: $admin-gray
+        color: #fff
+        padding: 10px
+
+      &.no-results 
+        display: list-item
+        background: #f4f4f4
+        padding: 10px
+        font-family: "gs-light-italic"
+
+      &.group-result 
+        display: list-item
+        font-weight: bold
+        cursor: default
+
+      &.group-option 
+        padding-left: 15px
+
+      em 
+        font-style: normal
+        text-decoration: underline
+
+
+// @end
+
+
+// @group Multi Chosen
+.chosen-container-multi 
+
+  .chosen-choices 
+    position: relative
+    overflow: hidden
+    -webkit-box-sizing: border-box
+    -moz-box-sizing: border-box
+    box-sizing: border-box
+    margin: 0
+    padding: 5px 7px
+    width: 100%
+    height: auto !important
+    height: 1%
+    border: 1px solid rgba(0,0,0,.1)
+    background-color: #fff
+    cursor: text
+    font-family: "gs-regular"
+    font-size: 14px
+    font-weight: normal
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+
+    li 
+      float: left
+      list-style: none
+
+      &.search-field 
+        margin: 0
+        padding: 0
+        white-space: nowrap
+
+        input[type="text"] 
+          margin: 1px 0
+          padding: 5px
+          height: 15px
+          outline: 0
+          border: 0 !important
+          background: transparent !important
+          box-shadow: none
+          color: #999
+          font-size: 100%
+          line-height: normal
+          border-radius: 0
+          font-family: "gs-regular"
+          font-size: 14px
+          font-weight: normal
+          -webkit-font-smoothing: antialiased
+          -moz-osx-font-smoothing: grayscale
+
+        .default 
+          color: #999
+
+      &.search-choice 
+        position: relative
+        margin: 3px 0 3px 5px
+        padding: 5px 20px 5px 5px
+        border-radius: 3px
+        background-color: #e4e4e4
+        background-clip: padding-box
+        color: #FFF
+        line-height: 13px
+        cursor: default
+        background: $blue
+        font-family: "gs-regular"
+        font-weight: normal
+        -webkit-font-smoothing: antialiased
+        -moz-osx-font-smoothing: grayscale
+
+        .search-choice-close 
+          position: absolute
+          top: 6px
+          right: 3px
+          display: block
+          width: 12px
+          height: 12px
+          background: image-url('admin/chosen-sprite.png') -42px 1px no-repeat
+          font-size: 1px
+
+          // &:hover 
+          //   background-position: -42px -10px
+
+      &.search-choice-disabled 
+        padding-right: 5px
+        border: 1px solid #ccc
+        background-color: #e4e4e4
+        background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #f4f4f4), color-stop(50%, #f0f0f0), color-stop(52%, #e8e8e8), color-stop(100%, #eeeeee))
+        background-image: -webkit-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%)
+        background-image: -moz-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%)
+        background-image: -o-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%)
+        background-image: linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%)
+        color: #666
+
+      &.search-choice-focus 
+        background: #d4d4d4
+
+        .search-choice-close 
+          background-position: -42px -10px
+
+  .chosen-results 
+    margin: 0
+    padding: 0
+
+  .chosen-drop 
+
+    &.result-selected 
+      display: list-item
+      color: #ccc
+      cursor: default
+
+
+// @end
+
+
+// @group Retina compatibility
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 144dpi) 
+  .chosen-rtl .chosen-search input[type="text"],
+  .chosen-container-single .chosen-single abbr,
+  .chosen-container-single .chosen-single div b,
+  .chosen-container-single .chosen-search input[type="text"],
+  .chosen-container-multi .chosen-choices .search-choice .search-choice-close,
+  .chosen-container .chosen-results-scroll-down span,
+  .chosen-container .chosen-results-scroll-up span 
+    background-image: image-url('admin/chosen-sprite@2x.png') !important
+    background-size: 52px 37px !important
+    background-repeat: no-repeat !important
+  
+
+// @end

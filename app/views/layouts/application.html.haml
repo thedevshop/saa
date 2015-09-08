@@ -1,0 +1,16 @@
+!!! html5
+%html
+  %head
+    %title G2
+    = stylesheet_link_tag "application", media: "all" 
+    = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyD5J69hKrWWufeZzOlhFVGxc7BegmHyoss&sensor=false&libraries=geometry,places"
+    = javascript_include_tag "application" 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, , maximum-scale=1.0, user-scalable=0">
+    = csrf_meta_tags
+
+  %body
+    = render 'shared/header'
+    = yield 
+
+    
+

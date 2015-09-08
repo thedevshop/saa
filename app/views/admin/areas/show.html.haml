@@ -1,0 +1,31 @@
+#pagetype.property-management{data: {sub_page: "areas"}}
+  .admin-breadcrumbs
+    Property Management
+    %i.fa.fa-angle-right 
+    = link_to "Areas", admin_areas_path
+    %i.fa.fa-angle-right 
+    = @area.name
+  .admin-divider-line
+
+  .admin-title-wrapper
+    .admin-page-title 
+      %i.fa.fa-map-marker
+      Areas
+  .admin-divider-line
+  .admin-box-wrapper.full
+    .admin-box
+      .admin-show
+        %table
+          %thead
+            %tr
+              %th= @area.name
+              %th
+                = link_to edit_admin_area_path(@area), class: "crud-icon" do
+                  %i.fa.fa-pencil
+                  Edit
+
+          %tbody
+            %tr
+              %td
+                %p.cell-title Area Name
+                %p.cell-info= @area.name

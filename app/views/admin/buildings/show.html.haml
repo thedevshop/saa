@@ -1,0 +1,70 @@
+#pagetype.property-management{data: {sub_page: "areas"}}
+  .admin-breadcrumbs
+    Property Management
+    %i.fa.fa-angle-right 
+    = link_to "Buildings", admin_buildings_path
+    %i.fa.fa-angle-right 
+    = @building.name
+  .admin-divider-line
+
+  .admin-title-wrapper
+    .admin-page-title 
+      %i.fa.fa-building-o
+      Buildings
+  .admin-divider-line
+  .admin-box-wrapper.full
+    .admin-box
+      .admin-show
+        %table
+          %thead
+            %tr
+              %th= @building.name
+              %th
+                = link_to edit_admin_building_path(@building), class: "crud-icon" do
+                  %i.fa.fa-pencil
+                  Edit
+
+          %tbody
+            %tr
+              %td
+                %p.cell-title Building Name
+                %p.cell-info= @building.name
+              %td
+                %p.cell-title Address
+                %p.cell-info= @building.address
+            %tr
+              %td
+                %p.cell-title City
+                %p.cell-info= @building.city
+              %td
+                %p.cell-title State
+                %p.cell-info= @building.state
+            %tr
+              %td
+                %p.cell-title Zip
+                %p.cell-info= @building.zip
+              %td
+                %p.cell-title Area
+                %p.cell-info= @building.area.name
+            %tr
+              %td
+                %p.cell-title Building Class
+                %p.cell-info= @building.building_class
+              %td
+                %p.cell-title Building Size (Sq Ft.)
+                %p.cell-info= @building.building_size
+            %tr
+              %td
+                %p.cell-title Number of Elevators
+                %p.cell-info= @building.number_of_elevators
+              %td
+                %p.cell-title Building Type
+                %p.cell-info= @building.building_type
+            %tr
+              %td
+                %p.cell-title Building Latitude
+                %p.cell-info= @building.latitude
+              %td
+                %p.cell-title Building Longitute
+                %p.cell-info= @building.longitude
+

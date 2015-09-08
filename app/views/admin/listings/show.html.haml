@@ -1,0 +1,58 @@
+#pagetype.property-management{data: {sub_page: "listings"}}
+  .admin-breadcrumbs
+    Property Management
+    %i.fa.fa-angle-right 
+    = link_to "Listings", admin_listings_path
+    %i.fa.fa-angle-right 
+    = @listing.building.name
+  .admin-divider-line
+
+  .admin-title-wrapper
+    .admin-page-title 
+      %i.fa.fa-list
+      Listings
+  .admin-divider-line
+  .admin-box-wrapper.full
+    .admin-box
+      .admin-show
+        %table
+          %thead
+            %tr
+              %th= "#{@listing.building.name + " | Unit " + @listing.unit}"
+              %th
+                = link_to edit_admin_listing_path(@listing), class: "crud-icon" do
+                  %i.fa.fa-pencil
+                  Edit
+
+          %tbody
+            %tr
+              %td
+                %p.cell-title Building Name
+                %p.cell-info= @listing.building.name
+              %td
+                %p.cell-title Unit
+                %p.cell-info= @listing.unit
+            %tr
+              %td
+                %p.cell-title Size (Sq Ft)
+                %p.cell-info= @listing.size
+              %td
+                %p.cell-title Use
+                %p.cell-info= @listing.use
+            %tr
+              %td
+                %p.cell-title Sublease
+                %p.cell-info= @listing.is_sublease
+              %td
+                %p.cell-title Term
+                %p.cell-info= @listing.term
+            %tr
+              %td
+                %p.cell-title Price Per Square Foot
+                %p.cell-info= @listing.price_per_square_foot.to_i
+              %td
+                %p.cell-title Total Monthly Price
+                %p.cell-info= @listing.total_monthly_price.to_i
+
+
+

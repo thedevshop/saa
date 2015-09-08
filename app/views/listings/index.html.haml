@@ -1,0 +1,67 @@
+.listings
+  .listings-content-left
+    #listings
+      .filters-wrapper
+        = simple_form_for :filters, url: filter_listings_path, remote: true, html: {id: "unit-refiner"} do |f|
+          = f.hidden_field :sw_lat
+          = f.hidden_field :sw_lon
+          = f.hidden_field :ne_lat
+          = f.hidden_field :ne_lon
+
+          .filters-row.align-left
+            .filters-title Neighborhood
+            .filters-search-wrapper
+              = f.input_field :search, placeholder: "Search", class: "filters-search"
+            .more-filters-wrapper
+              %button.more-filters.filters-btn more filters
+          .filters-row.align-center
+            .filters-btn-wrapper
+              .filters-title.short Bed
+              .filters-btn-container
+                %button.filters-btn{data: {value: 1}} S
+                %button.filters-btn{data: {value: 1}} 1
+                %button.filters-btn{data: {value: 2}} 2
+                %button.filters-btn{data: {value: 3}} 3
+                %button.filters-btn{data: {value: 4}} 4+
+                = f.hidden_field :beds
+            .filters-btn-wrapper
+              .filters-title Bath
+              .filters-btn-container
+                %button.filters-btn{data: {value: 1}} 1
+                %button.filters-btn{data: {value: 2}} 2
+                %button.filters-btn{data: {value: 3}} 3
+                %button.filters-btn{data: {value: 4}} 4+
+                = f.hidden_field :baths
+            .filters-btn-wrapper
+              .filters-title Pets
+              .filters-btn-container
+                %button.filters-btn.pets.dog{data: {value: "true"}} 
+                  %span 1
+                = f.hidden_field :dogs
+                %button.filters-btn.pets.cat{data: {value: "true"}} 
+                  %span 2
+                = f.hidden_field :cats
+          .filters-row
+            .filters-title Price Range
+            .filters-range-wrapper
+              .filters-range-container
+                .filters-result.align-right.from 
+                  $
+                  %span>0
+                .filters-range
+                  #price-range          
+                  = f.hidden_field :price_from
+                  = f.hidden_field :price_to
+                .filters-result.align-left.to 
+                  $
+                  %span>1,000+
+
+
+      .listings-results
+        = render 'properties'
+  .listings-map-right
+    #listings-map
+    #zoomin.zoom-controls.zoomin
+      +
+    #zoomout.zoom-controls.zoomout
+      \-

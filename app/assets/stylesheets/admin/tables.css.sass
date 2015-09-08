@@ -1,0 +1,270 @@
+.admin-index
+
+  table
+    width: 100%
+    border-collapse: collapse
+    table-layout: fixed
+
+    thead
+      width: 100%
+      background-color: $admin-gray
+
+      tr
+
+        th
+          font-family: "gs-regular"
+          font-size: 14px
+          text-align: left
+          color: #FFF
+          padding: 10px
+          font-weight: normal
+          -webkit-font-smoothing: antialiased
+          -moz-osx-font-smoothing: grayscale
+          -moz-box-sizing: border-box
+          -webkit-box-sizing: border-box
+          box-sizing: border-box
+
+    tbody
+
+      tr
+
+        td
+          font-family: "gs-regular"
+          font-size: 14px
+          text-align: left
+          color: #000
+          font-weight: normal
+          -webkit-font-smoothing: antialiased
+          -moz-osx-font-smoothing: grayscale
+          padding: 15px 10px
+          -moz-box-sizing: border-box
+          -webkit-box-sizing: border-box
+          box-sizing: border-box
+
+          &:last-child
+            text-align: right
+
+          a:hover
+            color: $orange
+
+          .crud-icon
+
+            i
+              color: $blue
+              margin: 0 0 0 7px
+
+              &:hover
+                color: $blue-hover
+
+.admin-show
+
+  table
+    width: 100%
+    border-collapse: collapse
+    table-layout: fixed
+
+    thead
+      width: 100%
+      background-color: $blue
+
+      tr
+        width: 100%
+
+        th
+          width: 100%
+          padding: 15px
+          -moz-box-sizing: border-box
+          -webkit-box-sizing: border-box
+          box-sizing: border-box
+          font-family: "montserrat-regular"
+          font-size: 14px
+          text-align: left
+          color: #FFF
+          font-weight: normal
+          -webkit-font-smoothing: antialiased
+          -moz-osx-font-smoothing: grayscale
+
+          &:last-child
+            text-align: right
+
+          a
+            background-color: $admin-gray
+            padding: 5px 10px
+            font-family: "gs-regular"
+            font-size: 14px
+            color: #FFF
+            border-radius: 3px
+            border-top: 1px solid rgba(255,255,255,.2)
+            border-bottom: 1px solid rgba(0,0,0,.5)
+            font-weight: normal
+            -webkit-font-smoothing: antialiased
+            -moz-osx-font-smoothing: grayscale
+
+            &:hover
+              background-color: #000
+
+          i
+            margin: 0 5px 0 0
+
+    tbody
+
+      tr
+
+        td
+          vertical-align: top
+          padding: 15px
+          -moz-box-sizing: border-box
+          -webkit-box-sizing: border-box
+          box-sizing: border-box
+
+          p.cell-title
+            font-family: "gs-regular"
+            font-size: 16px
+            text-align: left
+            border-bottom: 1px solid rgba(0,0,0,.1)
+            color: #000
+            margin: 0 0 15px 0
+            padding: 0 0 5px 0
+            font-weight: normal
+            -webkit-font-smoothing: antialiased
+            -moz-osx-font-smoothing: grayscale
+
+          p.cell-info
+            font-family: "gs-light"
+            font-size: 14px
+            text-align: left
+            color: #000
+            font-weight: normal
+            -webkit-font-smoothing: antialiased
+            -moz-osx-font-smoothing: grayscale
+
+            img
+              background-color: #f5f5f5
+              max-width: 50%
+              border-radius: 3px
+
+              &.icon
+                padding: 10px
+
+.admin-list
+
+  table
+    width: 100%
+    border-collapse: collapse
+    table-layout: fixed
+    margin: 0 0 30px
+    -moz-box-sizing: border-box
+    -webkit-box-sizing: border-box
+    box-sizing: border-box
+
+    &.uneven
+      table-layout: auto
+
+    thead
+      width: 100%
+
+      tr
+        width: 100%
+        border-bottom: 1px solid #e7e7e7
+
+        th
+          padding: 15px 10px
+          -moz-box-sizing: border-box
+          -webkit-box-sizing: border-box
+          box-sizing: border-box
+          font-family: "montserrat-regular"
+          font-size: 14px
+          text-align: left
+          color: #000
+          font-weight: normal
+          -webkit-font-smoothing: antialiased
+          -moz-osx-font-smoothing: grayscale
+
+          &:first-child
+            padding: 15px 10px 15px 30px
+
+          &:last-child
+            text-align: right
+
+          a
+            background-color: $admin-gray
+            padding: 5px 10px
+            font-family: "gs-regular"
+            font-size: 14px
+            color: #FFF
+            border-radius: 3px
+            border-top: 1px solid rgba(255,255,255,.2)
+            border-bottom: 1px solid rgba(0,0,0,.5)
+            font-weight: normal
+            -webkit-font-smoothing: antialiased
+            -moz-osx-font-smoothing: grayscale
+
+            &:hover
+              background-color: #000
+
+          i
+            margin: 0 5px 0 0
+
+    tbody
+      border-right: 40px solid #FFF
+      border-left: 40px solid #FFF
+
+      tr
+
+        &:nth-of-type(even)
+          background-color: #f9f9f9
+          border-top: 1px solid #eaeaea
+          border-bottom: 1px solid #eaeaea
+
+        &.row-link:hover
+          background-color: rgba(0,0,0,.1)
+
+        td
+          font-family: "gs-light"
+          font-size: 14px
+          text-align: left
+          color: #000
+          font-weight: normal
+          -webkit-font-smoothing: antialiased
+          -moz-osx-font-smoothing: grayscale
+          padding: 15px 10px
+          -moz-box-sizing: border-box
+          -webkit-box-sizing: border-box
+          box-sizing: border-box
+
+          &:last-child
+            text-align: right
+
+          &.cell-link
+            cursor: pointer
+
+          &.shrink
+            width: 1%
+            white-space: nowrap
+
+
+          a:hover
+            color: $orange
+
+          i
+            font-size: 20px
+
+            &.confirm
+              color: #69c49d
+
+            &.unconfirm
+              color: #c46969
+
+          .crud-icon
+
+            &.crud-show
+              display: none
+
+            i
+              font-size: 16px
+              color: $blue
+              margin: 0 10px 0 0
+
+              &:hover
+                color: $blue-hover
+

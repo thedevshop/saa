@@ -1,0 +1,40 @@
+.form-wrapper
+  = simple_form_for([:admin,@building]) do |f|
+    .input-container.half
+      %label Listing Name
+      = f.input :name, label: false, placeholder: "ex: Empire State Building"
+    .input-container.half.align-right
+      %label Street Address
+      = f.input :address, label: false, placeholder: "ex: 125 Main St."
+    .input-container.half
+      %label City
+      = f.input :city, label: false, placeholder: "ex: New York City"
+    .input-container.half.align-right
+      %label State
+      = f.input :state, label: false, placeholder: "ex: New York"
+    .input-container.half
+      %label Zip Code
+      = f.input :zip, label: false, placeholder: "ex: 10021"
+    .input-container.half.align-right
+      %label Area
+      .select-container
+        = f.association :area, label: false, prompt: "Choose area"
+    .clear
+    .input-container.half
+      %label Building Class
+      .select-container
+        = f.input :building_class, collection: ['A','B+','B','C+','C'], label: false, prompt: "Choose building class"
+    .input-container.half.align-right
+      %label 
+        Building Size 
+        %span (Sq Ft)
+      = f.input :building_size, label: false, placeholder: "ex: 32000", as: :string
+    .input-container.half
+      %label Number of Elevators
+      = f.input :number_of_elevators, label: false, placeholder: "ex: 5", as: :string
+    .input-container.half.align-right    
+      %label Building Type
+      .select-container
+        = f.input :building_type, collection: ['Walkup','Low Rise','Mid Rise','High Rise'], label: false, prompt: "Choose building type"
+    .input-container.full.align-right
+      = f.submit "Submit"

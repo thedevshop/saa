@@ -1,0 +1,45 @@
+=box-sizing($box-sizing: border-box)
+  -webkit-box-sizing: $box-sizing
+  -moz-box-sizing: $box-sizing
+  -o-box-sizing: $box-sizing
+  box-sizing: $box-sizing
+
+=anti-alias()
+  font-weight: normal
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+=box-shadow($variable)
+  -moz-box-shadow: $variable
+  -webkit-box-shadow: $variable
+  -o-box-shadow: $variable
+  box-shadow: $variable
+
+=transition($speed)
+  -webkit-transition: all $speed ease-in-out
+  -moz-transition: all $speed ease-in-out
+  -o-transition: all $speed ease-in-out
+  -ms-transition: all $speed ease-in-out
+  transition: all $speed ease-in-out
+
+=blur($variable)
+  -webkit-filter: blur($variable)
+  -moz-filter: blur($variable)
+  -o-filter: blur($variable)
+  -ms-filter: blur($variable)
+  filter: blur($variable)
+
+=border-radius($variable)
+  -webkit-border-radius: $variable
+  -moz-border-radius: $variable
+  -o-border-radius: $variable
+  -ms-border-radius: $variable
+  border-radius: $variable
+
+//fixes chrome issue with absolute images and border-radius overflow
+=webkit-mask()
+  -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC)
+
+=break
+  word-break: break-all
+  word-wrap: break-word

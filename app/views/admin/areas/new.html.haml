@@ -1,0 +1,20 @@
+#pagetype.property-management{data: {sub_page: "areas"}}
+  .admin-breadcrumbs
+    Property Management
+    %i.fa.fa-angle-right 
+    = link_to "Areas", admin_areas_path
+    %i.fa.fa-angle-right 
+    Add Area
+  .admin-divider-line
+  .admin-title-wrapper
+    .admin-page-title 
+      %i.fa.fa-map-marker
+      New Area
+  .admin-divider-line
+
+  .admin-box-wrapper.full
+    .admin-box
+      .admin-form-header
+        %p.admin-form-title Add a New Area
+        %p.admin-form-description Fill out the form below to add a new area
+      = render 'form'

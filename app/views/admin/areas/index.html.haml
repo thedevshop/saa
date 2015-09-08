@@ -1,0 +1,34 @@
+#pagetype.property-management{data: {sub_page: "areas"}}
+  .admin-breadcrumbs
+    Property Management
+    %i.fa.fa-angle-right 
+    Areas
+  .admin-divider-line
+
+  .admin-title-wrapper
+    .admin-page-title 
+      %i.fa.fa-map-marker
+      Areas
+    = link_to new_admin_area_path, class: 'add-button' do
+      %i.fa.fa-plus
+      Add an Area    
+  .admin-divider-line
+
+  - @areas.each do |area|
+    .admin-box-wrapper.half
+      .admin-box
+        .admin-index
+          %table
+            %thead
+              %tr.admin-box-header
+                %th Name
+                %th # Buildings
+                %th
+            %tbody
+              %td= area.name
+              %td= area.buildings.count
+              %td
+                = link_to edit_admin_area_path(area), class: "crud-icon" do
+                  %i.fa.fa-pencil
+                = link_to admin_area_path(area), :method => :delete, :confirm => "Are you sure?", class: "crud-icon" do
+                  %i.fa.fa-trash-o
