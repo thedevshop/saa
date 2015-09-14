@@ -2,54 +2,58 @@ class Refiner
 
   def initialize params
     @params = params
-    @result = Listing.all
+    @result = Listing.joins(:building).where('buildings.latitude BETWEEN (?) AND (?) AND buildings.longitude BETWEEN (?) AND (?)',@params[:sw_lat].to_f,@params[:ne_lat].to_f,@params[:sw_lon].to_f,@params[:ne_lon].to_f)
   end
 
   def refine_results
-    refine_by_price_per_square_foot
-    refine_by_square_feet
-    refine_by_use
-    refine_by_total_price
-    refine_by_building_class
-    refine_by_building_size
+    refine_by_beds
+    refine_by_baths
+    refine_by_dogs
+    refine_by_cats
+    refine_by_price
     return @result
   end
 
-  def refine_by_price_per_square_foot
-    if !@params[:max_price_per_square_foot] == ""
-      @result = @result.where('price_per_square_foot BETWEEN (?) AND (?)',@params[:min_price_per_square_foot],@params[:max_price_per_square_foot])
+  def refine_by_beds
+    if @params[:beds] != ""
+      if @params[:beds].to_i == 4
+        @result = @result.where('bed >= (?)', @params[:beds])
+      else
+        @result = @result.where('bed = (?)', @params[:beds])
+      end
     end
   end
   
-  def refine_by_square_feet
-    if !@params[:min_square_feet] == ""
-      @result = @result.where('size BETWEEN (?) AND (?)',@params[:min_square_feet],@params[:max_squre_feet])
+  def refine_by_baths
+    if @params[:baths] != ""
+      if @params[:baths].to_i == 4
+        @result = @result.where('bath >= (?)',@params[:baths])
+      else
+        @result = @result.where('bath = (?)',@params[:baths])
+      end
     end
   end
+
+  def refine_by_dogs
+    if @params[:dogs] == "true"
+      @result = @result.where(has_dogs: true)
+    end
+  end
+
+  def refine_by_cats
+    if @params[:cats] == "true"
+      @result = @result.where(has_cats: true)
+    end
+  end
+
+
+  def refine_by_price
+    if @params[:price_from] != "" || @params[:price_to] != ""
+      @result = @result.where('total_monthly_price BETWEEN (?) AND (?)',@params[:price_from],@params[:price_to])
+    end
+  end
+
   
-  def refine_by_use
-    if !@params[:use] == ""
-      @result = @result.where(use: @params[:use])
-    end
-  end
-  
-  def refine_by_total_price
-    if !@params[:min_total_price] == ""
-      @result = @result.where('total_monthly_price BETWEEN (?) AND (?)',@params[:min_total_price],@params[:max_total_price])
-    end
-  end
-  
-  def refine_by_building_class
-    if @params[:building_class].any?
-      @result = @result.joins(:building).where('building_class IN (?)',@params[:building_class])
-    end
-  end
-  
-  def refine_by_building_size
-    if !@params[:min_building_square_feet] == ""
-      @result = @result.joins(:building).where('building_size BETWEEN (?) AND (?)',@params[:min_building_square_feet],@params[:max_building_square_feet])
-    end
-  end
   
   
   

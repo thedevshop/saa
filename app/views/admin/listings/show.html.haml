@@ -34,25 +34,15 @@
                 %p.cell-info= @listing.unit
             %tr
               %td
-                %p.cell-title Size (Sq Ft)
-                %p.cell-info= @listing.size
+                %p.cell-title Bed(s)
+                %p.cell-info= @listing.bed.to_i
               %td
-                %p.cell-title Use
-                %p.cell-info= @listing.use
+                %p.cell-title Bath(s)
+                %p.cell-info= @listing.bath.to_i
             %tr
               %td
-                %p.cell-title Sublease
-                %p.cell-info= @listing.is_sublease
-              %td
-                %p.cell-title Term
-                %p.cell-info= @listing.term
-            %tr
-              %td
-                %p.cell-title Price Per Square Foot
-                %p.cell-info= @listing.price_per_square_foot.to_i
-              %td
-                %p.cell-title Total Monthly Price
-                %p.cell-info= @listing.total_monthly_price.to_i
+                %p.cell-title Price
+                %p.cell-info= number_to_currency @listing.total_monthly_price.to_i
 
 
 

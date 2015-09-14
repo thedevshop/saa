@@ -8,7 +8,7 @@ function initialize() {
     var location = $("#listings-map").data("city")
 
     var map;
-    var center = new google.maps.LatLng(40.7489201,-73.9863486);
+    var center = new google.maps.LatLng(40.4000, -3.7167);
     window.markers = [];
     window.multiStackedInfoBoxes = [];
 
@@ -21,7 +21,7 @@ function initialize() {
     
     //create map options
     var mapOptions = {
-      'zoom': 13,
+      'zoom': 12,
       'center': center,
       'mapTypeId': google.maps.MapTypeId.ROADMAP,
       styles: [{featureType: "poi", stylers: [{ visibility: "off" }]}],
@@ -326,20 +326,21 @@ function initialize() {
       infoWindowHeight = 204;
 
       function imageCarousel(marker){
-        var html = "";
-        $(marker).each(function(index,value){
-          html += '<div class="img-container resize"><img src="'+value.image.thumb.url+'"/></div>'
-        })
+        html = '<div class="img-container resize"><img src="/assets/apt/'+marker+'"/></div>'
+        // var html = "";
+        // $(marker).each(function(index,value){
+        //   html += '<div class="img-container resize"><img src="/assets/apt/'+value.marker+'"/></div>'
+        // })
         return html;
       }
 
 
       innerContent = 
-        '<div class="listings-img-wrapper infowindow" onclick="window.open(\'listings/'+markerInfo.id+'\')">'+
+        '<div class="listings-img-wrapper infowindow open-modal" onclick="open_modal('+markerInfo.id+')">'+
           '<button class="listings-arrows left-arrow" onclick="carousel_left(this);event.stopPropagation();"><icon class="icon-left-open"></icon></button>'+
           '<button class="listings-arrows right-arrow" onclick="carousel_right(this);event.stopPropagation();"><icon class="icon-right-open"></icon></button>'+
           '<div class="listings-overlay">'+
-            '<icon class="icon-map-pin-streamline"></icon> Midtown'+
+            '<icon class="icon-map-pin-streamline"></icon> Madrid'+
           '</div>'+
           '<div class="listings-price">'+
             '<p>' + toCurrency((markerInfo.price != undefined ? markerInfo.price : 0), "$") + '</p>'+
@@ -350,17 +351,17 @@ function initialize() {
             '</div>'+
           '</div>'+
         '</div>'+
-        '<div class="address" onclick="window.open(\'listings/'+markerInfo.id+'\')">'+
+        '<div class="address" onclick="onclick="open_modal('+markerInfo.id+')">'+
           '<p>'+
             markerInfo.address + ', Unit ' + markerInfo.unit +
           '</p>'+
         '</div>'+
-        '<div class="bed-bath" onclick="window.open(\'listings/'+markerInfo.id+'\')">'+
+        '<div class="bed-bath" onclick="onclick="open_modal('+markerInfo.id+')">'+
           '<p>'+
-            markerInfo.beds +
+            markerInfo.bed +
             '<span> Bed</span>'+
             ' / '+
-            markerInfo.baths +
+            markerInfo.bath +
             '<span> Bath</span>'+
           '</p>'+
         '</div>';
@@ -373,9 +374,9 @@ function initialize() {
           infoWindowHeight += 50;
         }
 
-        innerContent += '<div class="multi-container" onclick="window.open(\'listings/'+markerInfo.id+'\')">' +
+        innerContent += '<div class="multi-container open-modal" onclick="window.open(\'listings/'+markerInfo.id+'\')">' +
           '<div class="multi-img resize">'+
-          '<img src="'+ markerInfo.images[0].image.tiny.url +'" style="display: none"/>' +
+          '<img src="'+ markerInfo.images +'" style="display: none"/>' +
           '</div>'+
           '<div class="multi-content">' +
           '<p class="address">' + markerInfo.address + ', Unit ' + markerInfo.unit + '</p>' +

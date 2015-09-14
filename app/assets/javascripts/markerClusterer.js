@@ -1301,7 +1301,7 @@ ClusterIcon.prototype.createCss = function(pos) {
 
   style.push('cursor:pointer; top:' + pos.y + 'px; left:' +
       pos.x + 'px; position:absolute; font-size:' +
-      txtSize + 'px; font-family: "ubuntu-regular"; display: block;');
+      txtSize + 'px; font-family: "gs-regular"; display: block;');
   return style.join('');
 };
 

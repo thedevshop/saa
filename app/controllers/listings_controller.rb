@@ -28,7 +28,9 @@ class ListingsController < ApplicationController
         city: unit.building.city,
         state: unit.building.state,
         zip: unit.building.zip,
-        # images: unit.images
+        bed: unit.bed,
+        bath: unit.bath,
+        images: unit.images
         }
       formatted_units << unit
     end
@@ -50,7 +52,7 @@ class ListingsController < ApplicationController
     @listings = Listing.joins(:building).where('buildings.latitude BETWEEN (?) AND (?) AND buildings.longitude BETWEEN (?) AND (?)',sw_lat,ne_lat,sw_lon,ne_lon)
     #create json which is sent to refresh.js.erb to re-plot map markers
     #use later
-    @object = @listings.collect{|x| {:lat => x.building.latitude, :lng => x.building.longitude, :id => x.id, :building_id => x.building_id, :address => x.building.address, :unit => x.unit, :name => x.building.name, :price => x.total_monthly_price} }.to_json.to_s.html_safe
+    @object = @listings.collect{|x| {:lat => x.building.latitude, :lng => x.building.longitude, :id => x.id, :building_id => x.building_id, :address => x.building.address, :unit => x.unit, :name => x.building.name, :price => x.total_monthly_price, :bed => x.bed, :bath => x.bath, :images => x.images} }.to_json.to_s.html_safe
 
   end
 
@@ -69,7 +71,7 @@ class ListingsController < ApplicationController
     # @listings = Listing.joins(:building).where('buildings.latitude BETWEEN (?) AND (?) AND buildings.longitude BETWEEN (?) AND (?)',sw_lat,ne_lat,sw_lon,ne_lon)
 
     #create json which is sent to refresh.js.erb to re-plot map markers
-    @object = @listings.collect{|x| {:lat => x.building.latitude, :lng => x.building.longitude, :id => x.id, :building_id => x.building_id, :address => x.building.address, :unit => x.unit, :name => x.building.name, :price => x.total_monthly_price} }.to_json.to_s.html_safe
+    @object = @listings.collect{|x| {:lat => x.building.latitude, :lng => x.building.longitude, :id => x.id, :building_id => x.building_id, :address => x.building.address, :unit => x.unit, :name => x.building.name, :price => x.total_monthly_price, :bed => x.bed, :bath => x.bath, :images => x.images} }.to_json.to_s.html_safe
 
     render 'refresh'
 

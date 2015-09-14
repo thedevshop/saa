@@ -1,25 +1,25 @@
 .listings-wrapper{data: {listings: @object.to_json}}
   - @listings.each do |listing|
     .listings-container
-      = link_to listing_path(listing), target: "_blank", class: "listings-box" do
+      = link_to listing_path(listing), target: "_blank", class: "listings-box open-modal", data: {unit_id: listing.id} do
         .listings-img-wrapper
-          %button.listings-arrows.left-arrow
-            %icon.icon-left-open
-          %button.listings-arrows.right-arrow
-            %icon.icon-right-open
+          / %button.listings-arrows.left-arrow
+          /   %icon.icon-left-open
+          / %button.listings-arrows.right-arrow
+          /   %icon.icon-right-open
           .listings-overlay
             .neighborhood
               %icon.icon-map-pin-streamline
-              Midtown
+              = listing.building.area.name
           .listings-img-container
             .listings-slide-container
               .img-container.resize
-                = image_tag "http://www.homeadore.com/wp-content/uploads/2013/04/004-nyc-apartment-eisner-design.jpg"
+                = image_tag "/assets/apt/"+listing.images.to_s
         .listings-content-wrapper
           .listings-info-container
-            .listings-address #{listing.building.address}
+            .listings-address #{listing.building.address}, #{listing.unit}
             .listings-price
               %span.icon
               = number_to_currency(listing.total_monthly_price, :precision => 0)
               %span.per / Mo.
-          .listings-type 1 Bed / 1 Bath
+          .listings-type #{listing.bed.to_i} Bed / #{listing.bath.to_i} Bath

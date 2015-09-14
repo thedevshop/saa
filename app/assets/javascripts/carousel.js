@@ -75,6 +75,11 @@ $(window).load(function(){
   }; //end function -> carousel_left
 
 
+  function open_modal(id){
+    var id = $(this).data("unit-id");
+    $("#apt-id").val(id);
+    $(".modal").fadeIn(200);            
+  }
 
 
 

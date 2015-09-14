@@ -1,2 +1,10 @@
-INDEX
-= link_to "listings", listings_path
+= content_for :header do
+  transparent
+= content_for :bg do
+  bg-image
+
+
+
+.content-wrapper
+  .logo 
+  = link_to "View Listings", listings_path, class: "btn"

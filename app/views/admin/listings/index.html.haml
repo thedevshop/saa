@@ -22,7 +22,9 @@
               %tr
                 %th Building
                 %th Unit
-                %th Size
+                %th Price
+                %th Bed
+                %th Bath
                 %th
             %tbody
               - @listings.each do |listing|
@@ -30,6 +32,8 @@
                   %td.cell-link= listing.building.name
                   %td.cell-link= listing.unit
                   %td.cell-link= listing.size
+                  %td.cell-link= listing.bed.to_i
+                  %td.cell-link= listing.bath.to_i
                   %td
                     = link_to admin_listing_path(listing), class: "crud-icon crud-show" do
                       %i.fa.fa-eye

@@ -23,7 +23,8 @@
 
         .filters-row
           display: table
-          width: 100%
+          width: 90%
+          margin: auto
           padding: 15px 0
           +box-sizing
 
@@ -31,7 +32,7 @@
             display: table-cell
             vertical-align: middle
             width: 100px
-            font-family: "skola-medium"
+            font-family: "gs-regular"
             font-size: 12px
             color: #000
             text-align: inherit
@@ -54,7 +55,7 @@
               border: none
               border-bottom: 1px solid rgba(0,0,0,.2)
               outline: none
-              font-family: "skola-regular"
+              font-family: "gs-regular"
               font-size: 12px
               color: #000
               text-align: left
@@ -71,7 +72,7 @@
               background: image-url("public-sprite.png") no-repeat -179px 6px #FFF
               width: 100%
               display: block
-              font-family: "ubuntu-bold"
+              font-family: "gs-semibold"
               font-size: 11px
               color: #000
               outline: none
@@ -83,18 +84,18 @@
 
               &:hover, &.active
                 background-position: -179px -44px
-                background-color: #000
-                border: 1px solid #000
+                background-color: #25c2f2
+                border: 1px solid #25c2f2
                 color: #FFF
 
           .filters-btn-wrapper
             display: table-cell
             vertical-align: middle
-            width: 40%
+            width: 50%
             overflow: hidden
 
-            &:last-child
-              width: 20%
+            // &:last-child
+            //   width: 20%
 
             .filters-title
               display: table-cell
@@ -111,7 +112,7 @@
                 background: #FFF
                 float: left
                 width: 48px
-                font-family: "ubuntu-bold"
+                font-family: "gs-semibold"
                 font-size: 16px
                 color: #000
                 outline: none
@@ -125,8 +126,8 @@
                   border-left: none
 
                 &:hover, &.active
-                  background: #000
-                  border: 1px solid #000
+                  background: #25c2f2
+                  border: 1px solid #25c2f2
                   color: #FFF
 
                   &:nth-of-type(1n+2)
@@ -165,7 +166,7 @@
                 display: table-cell
                 vertical-align: middle
                 width: 70px
-                font-family: "skola-medium"
+                font-family: "gs-regular"
                 font-size: 12px
                 color: #000
                 +anti-alias
@@ -221,7 +222,7 @@
 
                   .listings-address
                     float: left
-                    font-family: "skola-regular"
+                    font-family: "gs-regular"
                     font-size: 16px
                     color: #000
                     text-align: left
@@ -229,7 +230,7 @@
 
                   .listings-price
                     float: right
-                    font-family: "skola-bold"
+                    font-family: "aileron-bold"
                     font-size: 19px
                     color: #000
                     text-align: left
@@ -243,13 +244,13 @@
                       height: 17px
 
                     span.per
-                      font-family: "skola-medium"
+                      font-family: "gs-regular"
                       font-size: 12px
                       color: #858585
                       text-transform: uppercase
 
                 .listings-type
-                  font-family: "skola-medium"
+                  font-family: "gs-regular"
                   font-size: 12px
                   color: #8b8b8b
                   text-align: left
@@ -269,9 +270,9 @@
       .cluster-icon
         display: none
         color: #FFF
-        background: #000
+        background: #25c2f2
         border-radius: 50%      
-        border: 5px solid rgba(90,197,205,.7) 
+        border: 5px solid rgba(37,194,242,.7) 
         -moz-background-clip: border 
         -webkit-background-clip: border 
         background-clip: border-box 
@@ -288,7 +289,7 @@
 
         &:hover
           background: #FFF
-          border: 5px solid #000 
+          border: 5px solid #25c2f2
           color: #000
 
         &.hover-class
@@ -331,7 +332,7 @@
           +box-sizing
           
           p
-            font-family: "skola-regular"
+            font-family: "gs-regular"
             font-size: 14px
             text-align: left
             color: #000
@@ -343,7 +344,7 @@
           +box-sizing
           
           p
-            font-family: "skola-medium"
+            font-family: "gs-regular"
             font-size: 12px
             color: #8b8b8b
             text-transform: uppercase
@@ -365,14 +366,14 @@
             +box-sizing
 
             .address
-              font-family: "skola-regular"
+              font-family: "gs-regular"
               font-size: 13px
               text-align: left
               color: #000
               +anti-alias
 
             .bed-bath
-              font-family: "skola-medium"
+              font-family: "gs-regular"
               font-size: 12px
               color: #8b8b8b
               text-transform: uppercase
@@ -399,8 +400,8 @@
       cursor: pointer
 
       &:hover
-        border: 1px solid #000
-        background-color: #000
+        border: 1px solid #25c2f2
+        background-color: #25c2f2
         color: #FFF
 
       &.zoomin
@@ -413,11 +414,111 @@
 
 
 
+.modal
+  display: none
+  position: absolute
+  left: 0
+  top: 0
+  background: rgba(255,255,255,.7)
+  width: 100%
+  height: 100%
+  z-index: 100
+
+  .modal-container
+    background: #FFF
+    position: absolute
+    top: 50%
+    left: 50%
+    width: 100%
+    max-width: 500px
+    border-radius: 3px
+    padding: 20px
+    box-shadow: 0px 0px 5px rgba(0,0,0,.4)
+    -moz-transform: translateX(-50%) translateY(-50%)
+    -webkit-transform: translateX(-50%) translateY(-50%)
+    transform: translateX(-50%) translateY(-50%)
+    +box-sizing
+
+    .modal-close
+      position: absolute
+      top: 10px
+      right: 10px
+      color: rgba(0,0,0,.3)
+      font-family: "gs-semibold"
+      font-size: 12px
+      padding: 10px
+      +anti-alias
+      +box-sizing
+      cursor: pointer
+
+    .modal-title
+      font-family: "gs-regular"
+      font-size: 14px
+      text-align: left
+      color: #000
+      margin: 0 0 20px
+      +anti-alias
+
+    .form-wrapper
+
+      .input-container
+        width: 100%
+        margin: 0 0 20px
+
+        input[type=text], input[type=email], input[type=password], input[type=tel]
+          display: inline-block
+          width: 100%
+          border: 1px solid rgba(0,0,0,.2)
+          padding: 12px 10px
+          outline: none
+          line-height: 16px
+          font-family: "gs-light"
+          font-size: 14px
+          text-align: left
+          color: #000
+          margin: 0 0 5px 0
+          +border-radius(3px)
+          +box-sizing
+          +anti-alias
+
+        ::-webkit-input-placeholder 
+          font-family: "gs-light-italic"
+        
+
+        :-moz-placeholder
+          font-family: "gs-light-italic"  
+        
+
+        ::-moz-placeholder
+          font-family: "gs-light-italic"  
+        
+
+        :-ms-input-placeholder   
+          font-family: "gs-light-italic"  
 
 
+        input[type=submit]
+          background: #25c2f2
+          width: 100%
+          display: inline-block
+          border: none
+          border-radius: 3px
+          padding: 12px 14px
+          -moz-box-sizing: border-box
+          -webkit-box-sizing: border-box
+          box-sizing: border-box
+          line-height: 16px
+          font-family: "montserrat-regular"
+          font-size: 14px
+          outline: none
+          color: #FFF
+          cursor: pointer
+          font-weight: normal
+          -webkit-font-smoothing: antialiased
+          -moz-osx-font-smoothing: grayscale
 
-
-
+          &:hover
+            opacity: .8
 
 
 

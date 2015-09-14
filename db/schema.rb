@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140825213059) do
+ActiveRecord::Schema.define(version: 20150914150603) do
 
   create_table "areas", force: true do |t|
     t.string   "name"
@@ -47,6 +47,9 @@ ActiveRecord::Schema.define(version: 20140825213059) do
     t.float    "total_monthly_price"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "bed"
+    t.float    "bath"
+    t.string   "images"
   end
 
 end
