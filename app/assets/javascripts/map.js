@@ -15,10 +15,10 @@ function initialize() {
     //empty variable for info windows
     var innerContent;
     var infoWindowHeight;
-    
+
     //used to determine if a multi-listing info window is open when the map is clicked on
     var stackedInfoClicked = 0;
-    
+
     //create map options
     var mapOptions = {
       'zoom': 12,
@@ -28,12 +28,12 @@ function initialize() {
       panControl: false,
       mapTypeControl: false,
       scaleControl: true,
-      streetViewControl: false,      
+      streetViewControl: false,
       scrollwheel: false,
       zoomControl: false,
       maxZoom: 18
     };
-                    
+
 
     // Set map variable to display map on the page with above options
     map = new google.maps.Map(document.getElementById("listings-map"), mapOptions);
@@ -56,7 +56,7 @@ function initialize() {
       //iterate through the array of markers
       $.each(markerVariable, function( index, value ) {
 
-      //create lat long object 
+      //create lat long object
       var listinglatLng = new google.maps.LatLng(value.lat,value.lng);
 
       // pass the lat long object into the position property of the object
@@ -108,7 +108,7 @@ function initialize() {
       //   console.log("hey")
       //   $("body").on("click", ".infoBox", function(){
       //   console.log("hey there")
-      //     $("a[data-listing-id='" + value.id + "']")[0].click();   
+      //     $("a[data-listing-id='" + value.id + "']")[0].click();
       //   })
       // });
 
@@ -150,7 +150,7 @@ function initialize() {
 
             //for the first cluster set the ID
             if(index == 0){
-              matchId = stackedValue.property_id;           
+              matchId = stackedValue.property_id;
             //if id matches each loop result, return true
             }else if(matchId == stackedValue.property_id){
               IdStatus = true;
@@ -165,7 +165,7 @@ function initialize() {
               var currentZoomLevel = map.getZoom();
               //set timeout - zoom map
               setTimeout(function(){
-                map.panTo(cluster.getCenter()); 
+                map.panTo(cluster.getCenter());
                 map.setZoom(currentZoomLevel+2)
               }, 500);
 
@@ -179,7 +179,7 @@ function initialize() {
 
           }); //end each
 
-          //after content has been formatted, create the info window. This marker is clicked on thus doesn't 
+          //after content has been formatted, create the info window. This marker is clicked on thus doesn't
           //need to be looped through like the single markers, so pass "null" for which marker it is
           //ADDED: if status is true, meaning this is not a cluster but a building w/multiple units, open infoWindow
           if(IdStatus == true){
@@ -190,7 +190,7 @@ function initialize() {
 
           //send single cluster info to infoWindow
           var singleContent = createInfoWindowContent(clusterMarkers[0], "single")
-          createInfoWindow(clusterMarkers[0], singleContent, "single", cluster);          
+          createInfoWindow(clusterMarkers[0], singleContent, "single", cluster);
 
         }; //end if/else
 
@@ -202,7 +202,7 @@ function initialize() {
 
       }); //end cluster click event
 
-    } //end pushMarkers function     
+    } //end pushMarkers function
 
 
     //call intial function to drop pins. Uses formated listings object from listings_controller
@@ -214,10 +214,10 @@ function initialize() {
 
     // close all info windows when the map is clicked
     google.maps.event.addListener(map, 'click', function() {
-    
+
       closeSingleInfoWindow(window.markers);
       closeMultiInfoWindow(window.multiStackedInfoBoxes);
-        
+
     });
 
     //********************
@@ -228,12 +228,12 @@ function initialize() {
       //loop through all single markers and close windows
       $.each(passInfo, function(index, value){
         value.info.close();
-      });      
+      });
     }
 
     //close multi-info windows
     function closeMultiInfoWindow(passInfo){
-      //if cluster is clicked (which triggers map thus closes all windows) 
+      //if cluster is clicked (which triggers map thus closes all windows)
       //do nothing and set clicked variable to 1 indicating that an info
       //window is now open, else, close all multi-info windows
       if(stackedInfoClicked == 1){
@@ -241,7 +241,7 @@ function initialize() {
       }else{
         $.each(passInfo, function(index, value){
           value.close();
-        });      
+        });
       }
     }
 
@@ -321,12 +321,12 @@ function initialize() {
     //create the content for the info window depending on which type it is
     function createInfoWindowContent(markerInfo, type){
 
-      if (type == "single"){ 
+      if (type == "single"){
 
       infoWindowHeight = 204;
 
       function imageCarousel(marker){
-        html = '<div class="img-container resize"><img src="/assets/apt/'+marker+'"/></div>'
+        html = '<div class="img-container resize"><img src="/assets/'+marker+'"/></div>'
         // var html = "";
         // $(marker).each(function(index,value){
         //   html += '<div class="img-container resize"><img src="/assets/apt/'+value.marker+'"/></div>'
@@ -335,7 +335,7 @@ function initialize() {
       }
 
 
-      innerContent = 
+      innerContent =
         '<div class="listings-img-wrapper infowindow open-modal" onclick="open_modal('+markerInfo.id+')">'+
           '<button class="listings-arrows left-arrow" onclick="carousel_left(this);event.stopPropagation();"><icon class="icon-left-open"></icon></button>'+
           '<button class="listings-arrows right-arrow" onclick="carousel_right(this);event.stopPropagation();"><icon class="icon-right-open"></icon></button>'+
@@ -392,7 +392,7 @@ function initialize() {
     //after the content is formatted, create the info window
     function createInfoWindow(markerInfo, innerContent, type, cluster){
 
-      var contentString = 
+      var contentString =
       '<div class="map-listing-box map-listing-box-list" style="overflow: auto; height: '+infoWindowHeight+'px;">' +
         innerContent +
       '</div>';
@@ -404,8 +404,8 @@ function initialize() {
           maxWidth: 0,
           pixelOffset: new google.maps.Size(-142, -260),
           zIndex: null,
-          boxStyle: { 
-            position: "relative",  
+          boxStyle: {
+            position: "relative",
             opacity: 1,
             width: 285,
             height: - (infoWindowHeight + 30)
@@ -428,7 +428,7 @@ function initialize() {
           var multiStacked = new InfoBox(infoBoxOptions);
           multiStacked.setPosition(cluster.getCenter());
 
-          window.multiStackedInfoBoxes.push(multiStacked); 
+          window.multiStackedInfoBoxes.push(multiStacked);
           multiStacked.open(map);
 
           //trigger carousel
@@ -445,7 +445,7 @@ function initialize() {
         var multiStacked = new InfoBox(infoBoxOptions);
         multiStacked.setPosition(cluster.getCenter());
 
-        window.multiStackedInfoBoxes.push(multiStacked); 
+        window.multiStackedInfoBoxes.push(multiStacked);
         multiStacked.open(map);
 
       }
@@ -465,7 +465,7 @@ function initialize() {
      google.maps.event.addDomListener(zoomout, 'click', function() {
        var currentZoomLevel = map.getZoom();
        if(currentZoomLevel != 0){
-         map.setZoom(currentZoomLevel - 1);}     
+         map.setZoom(currentZoomLevel - 1);}
       });
 
        google.maps.event.addDomListener(zoomin, 'click', function() {
