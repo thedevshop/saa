@@ -1,10 +1,10 @@
 set :stage, :production
 
-role :app, %w{realestate.devshoplabs.com}
-role :web, %w{realestate.devshoplabs.com}
-role :db,  %w{realestate.devshoplabs.com}
+role :app, %w{mvp.studyabroadapartments.com}
+role :web, %w{mvp.studyabroadapartments.com}
+role :db,  %w{mvp.studyabroadapartments.com}
 
-server 'realestate.devshoplabs.com',
+server 'mvp.studyabroadapartments.com',
     user: 'railsapps',
     roles: %w{web app},
     ssh_options: {
@@ -12,5 +12,5 @@ server 'realestate.devshoplabs.com',
         keys: %w(/home/railsapps/.ssh/id_rsa),
         forward_agent: false,
         auth_methods: %w(password),
-        password: '123'
+        password: 'pejeebg3'
     }

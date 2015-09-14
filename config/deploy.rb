@@ -2,12 +2,12 @@
 lock '3.2.1'
 
 set :application, 'g2'
-set :repo_url, 'git@github.com:thedevshop/g2.git'
+set :repo_url, 'git@github.com:thedevshop/saa.git'
 set :branch, 'master'
 
-set :deploy_to, '/home/railsapps/public_html/realestate/'
+set :deploy_to, '/home/railsapps/public_html/saa/'
 
-SSHKit.config.command_map[:rake]  = "bundle exec rake" 
+SSHKit.config.command_map[:rake]  = "bundle exec rake"
 SSHKit.config.command_map[:rails] = "bundle exec rails"
 
 namespace :deploy do
