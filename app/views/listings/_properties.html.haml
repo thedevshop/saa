@@ -14,7 +14,7 @@
           .listings-img-container
             .listings-slide-container
               .img-container.resize
-                = image_tag "/assets/apt/"+listing.images.to_s
+                = image_tag listing.images.url
         .listings-content-wrapper
           .listings-info-container
             .listings-address #{listing.building.address}, #{listing.unit}

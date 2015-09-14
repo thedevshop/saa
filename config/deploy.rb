@@ -30,4 +30,5 @@ namespace :deploy do
     end
 end
 
-set :linked_dirs, %w{public/system}
+
+set :linked_dirs, %w{public/uploads}

@@ -1,13 +1,13 @@
 .form-wrapper
   = simple_form_for([:admin,@listing]) do |f|
     .input-container.half
-      %label Building    
+      %label Building
       .select-container
         = f.association :building, label: false, prompt: "Choose a building"
     / = f.input :address
     .input-container.half.align-right
       %label Unit
-      = f.input :unit, label: false, placeholder: "ex: 302" 
+      = f.input :unit, label: false, placeholder: "ex: 302"
 
     .clear
     .input-container.half
@@ -22,6 +22,9 @@
     .input-container.half
       %label Price
       = f.input :total_monthly_price, label: false, placeholder: "ex: 10000", as: :string
+    .input-container.half
+      %label Image
+      = f.input :images
     .clear
     .input-container.full.align-right
       = f.submit "Submit"
