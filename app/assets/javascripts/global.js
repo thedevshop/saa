@@ -98,6 +98,83 @@ $(document).ready(function(){
 
   }); //end click -> .filters-btn
 
+  //************************************************************
+  //NEHIGBORHOOD SETUP
+  //************************************************************
+
+  //set up neighborhood
+  window.addNeighborhood = function addNeighborhood(value){
+    var currentNeighborhood = $(".load-neighborhood").data("neighborhood");
+    var chooseCity = $(".choose-city select").val();
+    var pullCity = "New York";
+    // var pullCity = $("#listings-map").data("city");
+    if(value){
+      var selectedValue = value;
+    }else if(chooseCity){
+      var selectedValue = chooseCity;
+    }else{
+      var selectedValue = pullCity;
+    }; //
+    //pull neighborhoods on selection of city
+    var url = "/assets/neighborhood.json";
+    //empty select if selection has been made
+    if(chooseCity || pullCity){
+      $(".load-neighborhood select").empty().closest(".input-container").addClass("validate validate-chosen").find(".input-blocker").removeClass("start-block").end().end().append("<option value=''></option>");            
+    }else{
+      $(".load-neighborhood select").empty().closest(".input-container").removeClass("validate validate-chosen error").find(".input-blocker").addClass("start-block");             
+    }
+
+    $.getJSON(url, function (area) {
+      $.each(area, function (index, value){
+
+        //if map page
+        if(pullCity){
+          var useValue = value.neighborhood_id;
+        }else{
+          var useValue = value.neighborhood;
+        }
+
+        if(value.city == selectedValue){
+          $(".load-neighborhood select").append("<option data-area='{\"area\":\""+value.area+", "+value.state+"\"}' value='"+useValue+"'>"+value.neighborhood+"</option>")
+        }; //end if -> city
+      }); //end each -> area
+      
+      //set selectize
+      if($(".load-neighborhood select").length){
+        $(".load-neighborhood select").selectize({
+          persist: false,
+          maxItems: 1,
+          dataAttr: 'data-area',
+          valueField: 'value',
+          labelField: 'name',
+          searchField: 'name',
+          render: {
+            option: function(data, escape) {
+              return '<div class="content-option">'
+              + data.name
+              + '<span class="area"> '+data.area+'</span> '
+              + '</div>';
+            },
+            item: function(data, escape){
+              return '<div class="selected-option">'
+              + data.name
+              + ', <span class="area"> '+data.area+'</span> '
+              + '</div>';
+            }
+          },
+          onChange: function(value){
+            //send to functon to update map position
+            window.goToNeighborhood(value);
+          }
+        }); //end selectize
+      }; //end if -> length
+
+    }); //end json -> neighborhood
+
+  }; //end function -> addNeighborhood
+
+  //run
+  window.addNeighborhood();
 
   
-})
+}); //doc reay

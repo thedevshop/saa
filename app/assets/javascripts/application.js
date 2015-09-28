@@ -8,3 +8,4 @@
 //= require markerClusterer
 //= require filter
 //= require map
+//= require selectize.min

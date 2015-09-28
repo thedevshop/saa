@@ -25,12 +25,12 @@
           = f.hidden_field :ne_lat
           = f.hidden_field :ne_lon
 
-          / .filters-row.align-left
-          /   .filters-title Neighborhood
-          /   .filters-search-wrapper
-          /     = f.input_field :search, placeholder: "Search", class: "filters-search"
-          /   .more-filters-wrapper
-          /     %button.more-filters.filters-btn more filters
+          .filters-row.align-left
+            .filters-title Neighborhood
+            .filters-search-wrapper.load-neighborhood
+              %select.filters-search#filters-search{name: "filters[search]"}
+            / .more-filters-wrapper
+            /   %button.more-filters.filters-btn more filters
           .filters-row.align-center
             .filters-btn-wrapper
               .filters-title.short Bed

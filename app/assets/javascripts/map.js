@@ -5,10 +5,13 @@ function initialize() {
   if($("#listings-map").length){
     //Set up variables
     //pull city from URL
-    var location = $("#listings-map").data("city")
+
+    var location = "New York"
+    // var location = $("#listings-map").data("city")
 
     var map;
-    var center = new google.maps.LatLng(40.4000, -3.7167);
+    // var center = new google.maps.LatLng(40.4000, -3.7167);
+    var center = new google.maps.LatLng(40.7127, -74.0059);
     window.markers = [];
     window.multiStackedInfoBoxes = [];
 
@@ -481,6 +484,121 @@ function initialize() {
           return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
       });
     }// end function -> toCurrency
+
+    //set array outside function because its used in filtering
+    var polygonArray = [];
+    //array to load areas -> NYC only
+    var drawnCities = ["Manhattan", "Brooklyn", "Queens", "Bronx", "Staten Island"];
+
+    function drawNeighborhoods(pullNeighborhood){
+      //POLYGONS -> Neighborhoods
+      var url = "/assets/cities/"+pullNeighborhood+".geojson";
+      var polygon;
+      var pathCoordinates = [];
+      $.getJSON(url, function (zones) {
+        for (var i = 0; i < zones.features.length; i++) {
+
+          var zone = zones.features[i];
+          var name = zone.properties.label;
+          var zoneid = zone.properties.id;
+          var type = zone.geometry.type;
+          var area = zone.properties.area;
+          // console.log("name " + name + " id"  + zoneid)
+
+          var coords = zone.geometry.coordinates[0];
+
+          //loop through coordinates and format for new polygon
+          for (var k = 0; k < coords.length; k++) {
+            newArray = {"lat": coords[k][0], "lng" : coords[k][1]},
+            pathCoordinates.push(newArray); 
+          }; //end for -> coords
+
+          // Construct the polygon.
+          polygon = new google.maps.Polygon({
+              paths: pathCoordinates,
+              strokeColor: "rgba(0,0,0,.2)",
+              strokeOpacity: 1,
+              strokeWeight: 2,
+              fillColor: "rgba(0,0,0,.1)",
+              fillOpacity: 0.25,
+              Name: name,
+              map: map, 
+              id: zoneid,
+              area: area
+          });
+
+          //push polygon into array for later use
+          polygonArray.push(polygon)
+
+          // google.maps.event.addListener(polygon,"mouseover",function(){
+          //   this.setOptions({fillColor: "#25c2f2", strokeColor: "#25c2f2", fillOpacity: 0.25});
+          //   $(".listings-neighborhood").html(this.Name).show();
+          // }); 
+
+          google.maps.event.addListener(polygon,"mouseout",function(){
+           this.setOptions({fillColor: "rgba(0,0,0,.1)", strokeColor: "rgba(0,0,0,.2)"});
+          $(".listings-neighborhood").html("").hide();
+          });
+
+          //close infowindows on polygon click
+          google.maps.event.addListener(polygon,"click",function() {
+            closeSingleInfoWindow(window.markers);
+            closeMultiInfoWindow(window.multiStackedInfoBoxes);
+          });
+
+          //clear array
+          pathCoordinates = [];
+        }; //for -> loop through json
+
+      }); //end getJson
+
+    }; //end function -> drawNeighborhoods
+
+    //use location from home page
+    if(location == "New York"){
+      var pullNeighborhood = "Manhattan" 
+  
+      //load all polygons for boroughs
+      for (var s = 0; s < drawnCities.length; s++) {
+        drawNeighborhoods(drawnCities[s])
+      }
+
+    }else{
+      var pullNeighborhood = location 
+    }
+
+    //change map location based on neighborhood
+    window.goToNeighborhood = function goToNeighborhood($value){
+
+      var pullValue = $value;
+      var pullName;
+      var pullArea;
+      //find location by name
+
+      for (var i = 0; i < polygonArray.length; i++) {
+
+       if(polygonArray[i].id == pullValue) //Or whatever that you require
+         {
+            //change its color 
+            polygonArray[i].setOptions({fillColor: "#25c2f2", strokeColor: "#FFF"});
+            pullName = polygonArray[i].Name;
+            pullArea = polygonArray[i].area;
+         }
+         else{
+           polygonArray[i].setOptions({fillColor: "transparent", strokeColor: "transparent"});          
+         }
+      }
+
+      var newGeocoder = new google.maps.Geocoder();
+      newGeocoder.geocode( { 'address': pullName + ", " + pullArea + ", " + location}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            map.setCenter(results[0].geometry.location);
+            map.setZoom(13);
+        }; //end if
+      }); //end geocode
+
+    }; //end function -> goToNeighborhood
+
 
   }; //end if -> #listings-map
 
