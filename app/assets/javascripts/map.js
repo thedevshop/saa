@@ -585,7 +585,7 @@ function initialize() {
             pullArea = polygonArray[i].area;
          }
          else{
-           polygonArray[i].setOptions({fillColor: "transparent", strokeColor: "transparent"});          
+           polygonArray[i].setOptions({fillColor: "rgba(0,0,0,.1)", strokeColor: "rgba(0,0,0,.2)"});          
          }
       }
 
